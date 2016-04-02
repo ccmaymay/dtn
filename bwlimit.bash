@@ -4,16 +4,19 @@ iface=eth0
 start_port=1
 end_port=65535
 
+default_rate=100mbit
+
 if [ $# -lt 1 ]
 then
-    rate=1mbps
-elif [ "$1" == "-h" -o "$1" == "--help" ]
+    rate=$default_rate
+elif [ $# -gt 1 -o "$1" == "-h" -o "$1" == "--help" ]
 then
-    echo "usage: $0 [rate]"
+    echo "Configure TCP bandwidth limit globally."
+    echo "Usage: $0 [rate]"
     echo
-    echo "where rate is e.g. 10mbps or 10mbit"
-    echo "(meaning 10 MB/s or 10 Mb/s, respectively);"
-    echo "for more information, see: http://linux.die.net/man/8/tc"
+    echo "  rate:  bandwidth limit, e.g., 10mbit"
+    echo "         (see http://linux.die.net/man/8/tc for syntax);"
+    echo "         default: $default_rate"
     exit
 else
     rate="$1"
