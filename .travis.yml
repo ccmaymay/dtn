@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -f $BUILD_FILE .
+
+env:
+  matrix:
+    - TEST_NAME="Centos"
+      BUILD_FILE="Dockerfile"
+
+    - TEST_NAME="Debian"
+      BUILD_FILE="debian.Dockerfile"
