@@ -1,5 +1,7 @@
 # dtn (data transfer node)
 
+[![dtn build status](https://api.travis-ci.org/cjmay/dtn.png?branch=master)](https://travis-ci.org/cjmay/dtn)
+
 Dockerfiles with configurable bandwidth-limited TCP traffic.
 
 [Globus Personal endpoint](https://www.globus.org/globus-connect-personal)
