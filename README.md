@@ -26,7 +26,7 @@ sudo ./bwlimit.bash 100mbit
 ```
 then set up and start a new Globus personal endpoint:
 ```
-cd globusconnectpersonal-2.2.1
+cd globusconnectpersonal-2.3.3
 ./globusconnect -setup 01234567-abcd-ef89-01234567abcd
 ./globusconnect -start -restrict-paths /xfer
 ```
