@@ -10,30 +10,20 @@ software is also downloaded and ready for configuration.
 
 ## Usage
 
-Find your Unix user ID by running `id -u` .  Edit `Dockerfile`, changing
-the value of the `uid` environment variable at the top to your user ID.
-Then build the image as
+Simply run
 ```
-docker build -t `whoami`-dtn .
+make
 ```
-(which names the image based on your username).  Now run the container
-with administrative network privileges (to enable the bandwidth limit):
+to build a personalized Dockerfile and run it.
+If you are trying to transfer existing files *off* of this machine, set the directory to mount via variable DIR:
 ```
-mkdir /tmp/`whoami`-xfer
-docker run -v /tmp/`whoami`-xfer:/xfer:z --cap-add=NET_ADMIN -it `whoami`-dtn
+make DIR=${DIR}
 ```
-Inside the container, first enable the bandwidth limit:
-```
-sudo ./bwlimit.bash 100mbit
-```
-then set up a new Globus personal endpoint on the
-[Globus web interface](https://www.globus.org/app/endpoints), configure
-the client using the generated setup key, and start the client:
-```
-cd globusconnectpersonal-2.3.3
-./globusconnect -setup 01234567-abcd-ef89-01234567abcd
-./globusconnect -start -restrict-paths /xfer
-```
+If you are transferring file *to* this machine, you can still set `DIR`, but it also has a default value of `/tmp/$(whoami)-xfer`.
+See additional information via `make help`.
+
+Once in the container, view the file `container_readme.md` (which will also be printed to the screen) and follow its instructions.
+You will need to know (generate) an endpoint id: you can create one at https://www.globus.org/app/endpoints/create-gcp.
 
 ### Actual throughput
 
