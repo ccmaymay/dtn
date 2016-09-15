@@ -26,7 +26,9 @@ Inside the container, first enable the bandwidth limit:
 ```
 sudo ./bwlimit.bash 100mbit
 ```
-then set up and start a new Globus personal endpoint:
+then set up a new Globus personal endpoint on the
+[Globus web interface](https://www.globus.org/app/endpoints), configure
+the client using the generated setup key, and start the client:
 ```
 cd globusconnectpersonal-2.2.1
 ./globusconnect -setup 01234567-abcd-ef89-01234567abcd
