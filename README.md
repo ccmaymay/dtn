@@ -30,7 +30,7 @@ then set up a new Globus personal endpoint on the
 [Globus web interface](https://www.globus.org/app/endpoints), configure
 the client using the generated setup key, and start the client:
 ```
-cd globusconnectpersonal-2.2.1
+cd globusconnectpersonal-2.3.3
 ./globusconnect -setup 01234567-abcd-ef89-01234567abcd
 ./globusconnect -start -restrict-paths /xfer
 ```

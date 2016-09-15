@@ -25,5 +25,7 @@ RUN chown globus:globus /home/globus/bwlimit.bash
 
 USER globus
 WORKDIR /home/globus
-RUN curl -o globusconnectpersonal-latest.tgz https://s3.amazonaws.com/connect.globusonline.org/linux/stable/globusconnectpersonal-latest.tgz
+RUN curl -o globusconnectpersonal-latest.tgz https://s3.amazonaws.com/connect.globusonline.org/linux/stable/globusconnectpersonal-latest.tgz # 2.3.3
 RUN tar -xzf globusconnectpersonal-latest.tgz
+
+CMD ["/bin/bash", "-l"]
